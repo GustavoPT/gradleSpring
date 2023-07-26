@@ -18,18 +18,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-
 enum AccountType {
     CHECKING
 }
 @Controller
-@RequestMapping("/bankTransactions")
 public class BankTransactionController {
-
-//    @PersistenceContext
-//    private EntityManager entityManager;
-//    @Autowired
-//    private JpaRepository<Object, Long> repository;
 
     @Autowired
     private UserRepository userRepository;
@@ -41,7 +34,7 @@ public class BankTransactionController {
     private BankTransactionRepository bankTransactionRepository;
 
     // TODO: Apply sorting algorithms
-    @GetMapping("/view")
+    @GetMapping("/userfront/dashboard")
     public String view(Model model, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("user");
         User userWithFullInformation = userRepository.findByUsername(user.getUsername());

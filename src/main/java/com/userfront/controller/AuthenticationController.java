@@ -17,9 +17,6 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class AuthenticationController {
 
-//    @Autowired
-//    private MyRepository repository;
-
     @Autowired
     private UserRepository userRepository;
 
@@ -29,6 +26,8 @@ public class AuthenticationController {
         model.addAttribute("user", user);
         return "registrationclient";
     }
+
+
 
     @RequestMapping( method = RequestMethod.POST)
     @Transactional
@@ -58,7 +57,7 @@ public class AuthenticationController {
 
     @GetMapping("/login")
     public String showLoginForm() {
-        return "loginclient";
+        return "Authentication/loginclient";
     }
 
     @PostMapping("/login")
